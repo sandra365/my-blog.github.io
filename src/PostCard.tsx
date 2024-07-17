@@ -2,6 +2,7 @@ import { Reactions } from './types';
 import { cropPostBody, formatTitle } from './utils';
 import './Post.css';
 import TagList from './TagList';
+import { Button } from '@mui/material';
 
 interface PostProps {
     title: string;
@@ -28,7 +29,7 @@ function PostCard(props:PostProps) {
                         {props.reactions.dislikes}
                     </div>
                 </div>
-                <button>Read more</button>
+                <Button variant='contained'>Read more</Button>
             </div>
         </div>
     );
