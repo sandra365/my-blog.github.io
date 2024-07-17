@@ -1,9 +1,9 @@
-interface Reactions {
+export interface Reactions {
     likes: number;
     dislikes: number;
 }
 
-interface Post {
+export interface Post {
     id: number;
     title: string;
     body: string;
@@ -16,4 +16,3 @@ interface Post {
 export interface PostsResponse {
     posts: Post[]
 }
-

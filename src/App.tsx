@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import Feed from './Feed'
-import './App.css'
+import Feed from './Feed';
+import './App.css';
+
 
 function App() {
-
   return (
     <>
       <h1>My blog</h1>
       <Feed/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
