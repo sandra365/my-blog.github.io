@@ -7,32 +7,3 @@
 .post > h2 {
     text-align: left;
 }
-
-/* .post > ul {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-} */
-
-/* .post > ul > li {
-    margin-right: 1em;
-    padding: .3em 1em;
-    font-weight: 600;
-    line-height: 0;
-    background-color: rgba(82, 82, 82, 0.65);
-    border-radius: 8px;
-} */
-
-.post-bottom-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.post-reactions-container {
-    display: flex;
-}
-
-.post-reactions-container > div:first-child {
-    margin-right: 1em;
-}

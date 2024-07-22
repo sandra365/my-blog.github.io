@@ -4,7 +4,7 @@ import { Reactions } from './types';
 import { cropPostBody, formatTitle } from './utils';
 import './Post.css';
 import TagList from './TagList';
-import { Button, List, Stack, Typography } from '@mui/material';
+import { Box, Button, Container, List, Stack, Typography } from '@mui/material';
 
 interface PostProps {
     title: string;
@@ -22,19 +22,19 @@ function PostCard(props:PostProps) {
             <Typography variant='h5' component='h2'>{postTitle}</Typography>
             <TagList tags={props.tags}/>
             <Typography variant='body1'>{postBodyPreview}</Typography>
-            <div className='post-bottom-container'>
-                <div className='post-reactions-container'>
-                    <div>
-                        <ThumbUpIcon fontSize='small'/>
+            <Stack direction='row' justifyContent='space-between'>
+                <Stack direction='row' spacing={1}>
+                    <Stack direction='row' alignItems='center'>
+                        <ThumbUpIcon fontSize='small'sx={{mr: 1}}/>
                         {props.reactions.likes}
-                    </div>
-                    <div>
-                        <ThumbDownIcon fontSize='small'/>
+                    </Stack>
+                    <Stack direction='row' alignItems='center'>
+                        <ThumbDownIcon fontSize='small' sx={{mr: 1}}/>
                         {props.reactions.dislikes}
-                    </div>
-                </div>
+                    </Stack>
+                </Stack>
                 <Button variant='contained'>Read more</Button>
-            </div>
+            </Stack>
         </div>
     );
 }
