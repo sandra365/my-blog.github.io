@@ -3,6 +3,7 @@ import './Feed.css';
 import { useEffect, useState } from "react";
 import { getPosts } from "./api/api";
 import { Post } from "./types";
+import { Grid } from "@mui/material";
 
 function Feed() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -19,9 +20,9 @@ function Feed() {
         return <PostCard title={post.title} tags={post.tags} body={post.body} reactions={post.reactions} key={post.id} />
     });
     return (
-        <div className="feed">
+        <Grid container spacing={4}>
             {postComponentsList}
-        </div>
+        </Grid>
     );
 }
 

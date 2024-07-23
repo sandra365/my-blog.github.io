@@ -4,7 +4,7 @@ import { Reactions } from './types';
 import { cropPostBody, formatTitle } from './utils';
 import './Post.css';
 import TagList from './TagList';
-import { Button, Stack, Typography } from '@mui/material';
+import { Button, Grid, Stack, Typography } from '@mui/material';
 
 interface PostProps {
     title: string;
@@ -18,7 +18,7 @@ function PostCard(props:PostProps) {
     const postBodyPreview = cropPostBody(props.body);
     
     return (
-        <div className='post'>
+        <Grid item xs={12} sm={6}>
             <Typography variant='h5' component='h2'>{postTitle}</Typography>
             <TagList tags={props.tags}/>
             <Typography variant='body1'>{postBodyPreview}</Typography>
@@ -35,7 +35,7 @@ function PostCard(props:PostProps) {
                 </Stack>
                 <Button variant='contained'>Read more</Button>
             </Stack>
-        </div>
+        </Grid>
     );
 }
 export default PostCard;

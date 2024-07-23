@@ -1,12 +1,11 @@
-.feed {
+/* .feed {
     display: flex;
     flex-wrap: wrap;
 }
 
 .feed > .post {
-    flex: 1 1 40%;
-    /* flex-basis: 40%;
+    flex-basis: 40%;
     flex-grow: 1;
-    flex-shrink: 1; */
+    flex-shrink: 1;
 }
-
+ */
