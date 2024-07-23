@@ -1,4 +1,4 @@
-import { Chip, List, ListItem, Stack } from "@mui/material";
+import { Chip, Stack } from "@mui/material";
 
 interface TagListProps {
     tags: string[];
