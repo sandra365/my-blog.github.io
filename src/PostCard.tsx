@@ -4,7 +4,7 @@ import { Reactions } from './types';
 import { cropPostBody, formatTitle } from './utils';
 import './Post.css';
 import TagList from './TagList';
-import { Box, Button, Container, List, Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 
 interface PostProps {
     title: string;

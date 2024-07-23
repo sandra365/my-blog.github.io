@@ -4,16 +4,6 @@ interface TagListProps {
     tags: string[];
 }
 
-// function TagList(props: TagListProps) {
-//     return props.tags.map((tag, index) => {
-//         const capitalizedTagName = tag[0].toUpperCase() + tag.slice(1);
-//         return (
-//             <ListItem key={index}>
-//                 <p>{capitalizedTagName}</p>
-//             </ListItem>
-//         );
-//     });
-// }
 function TagList(props: TagListProps) {
     const itemList = props.tags.map((tag, index) => {
         const capitalizedTagName = tag[0].toUpperCase() + tag.slice(1);
@@ -26,7 +16,7 @@ function TagList(props: TagListProps) {
         );
     });
     return (
-        <Stack component='ul' direction='row' justifyContent='flex-start' spacing={1} sx={{ paddingLeft: 0 }}>
+        <Stack component='ul' direction='row' justifyContent='flex-start' spacing={1} sx={{ pl: 0 }}>
             {itemList}
         </Stack>
     )
