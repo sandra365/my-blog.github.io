@@ -1,5 +1,4 @@
 import PostCard from "./PostCard";
-import './Feed.css';
 import { useEffect, useState } from "react";
 import { getPosts } from "./api/api";
 import { Post } from "./types";

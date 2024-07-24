@@ -2,7 +2,6 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { Reactions } from './types';
 import { cropPostBody, formatTitle } from './utils';
-import './Post.css';
 import TagList from './TagList';
 import { Button, Grid, Stack, Typography } from '@mui/material';
 
