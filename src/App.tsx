@@ -1,12 +1,12 @@
+import { Box, Stack, Typography } from '@mui/material';
 import Feed from './Feed';
-
 
 function App() {
   return (
-    <>
-      <h1>My blog</h1>
-      <Feed/>
-    </>
+      <Stack spacing={4} alignItems='center'>
+        <Typography variant='h1'> My blog </Typography>
+        <Box><Feed/></Box>
+      </Stack>
   );
 }
 

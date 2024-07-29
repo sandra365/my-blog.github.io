@@ -1,5 +1,5 @@
 export function cropPostBody (postBody: string) {
-    const slicedString = postBody.split(' ').slice(0, 20).join(' ');
+    const slicedString = postBody.split(' ').slice(0, 40).join(' ');
         return ( slicedString.endsWith('.') 
             ? slicedString + '..' 
             : slicedString + '...'
