@@ -4,8 +4,10 @@ import { Reactions } from './types';
 import { cropPostBody, formatTitle } from './utils';
 import TagList from './TagList';
 import { Box, Button, Card, CardActions, CardContent, Grid, Stack, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface PostProps {
+    id: number,
     title: string;
     body: string;
     tags: string[];
@@ -15,8 +17,9 @@ interface PostProps {
 function PostCard(props:PostProps) {
     const postTitle = formatTitle(props.title);
     const postBodyPreview = cropPostBody(props.body);
+    const buttonLink = `/posts/${props.id}`
     
-    return (
+    return ((
         <Grid item xs={8} sm={8} md={6} minWidth={345}>
             <Card>
                 <CardContent sx={{height: 225}}>
@@ -36,11 +39,14 @@ function PostCard(props:PostProps) {
                                 {props.reactions.dislikes}
                             </Stack>
                         </Stack>
-                        <Button variant='contained' size='small'>Read more</Button>
+                        <Link to={buttonLink}>
+                            <Button variant='contained' size='small'>Read more</Button>
+                        </Link>
                     </Stack>
                 </CardActions>
             </Card>
-        </Grid>
+        </Grid> 
+        )
     );
 }
 

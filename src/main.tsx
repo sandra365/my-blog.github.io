@@ -8,13 +8,27 @@ import App from './App.tsx';
 import './index.css';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme.ts';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import Feed from './Feed.tsx';
+import PostPage from './PostPage.tsx';
+import NotFound from './NotFound.tsx';
 
-
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path='/' element={<App/>} >
+        <Route path='/posts' element={<Feed/>} />
+        <Route path='/posts/:postId' element={<PostPage/>} />
+      </Route>
+      <Route path='*' element={<NotFound/>} />
+    </>
+ )
+);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <RouterProvider router={router} />
     </ThemeProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
