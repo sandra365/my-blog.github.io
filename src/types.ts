@@ -16,3 +16,9 @@ export interface Post {
 export interface PostsResponse {
     posts: Post[]
 }
+
+export interface User {
+    id: number;
+    firstName: string;
+    lastName: string;
+};

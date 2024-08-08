@@ -16,7 +16,7 @@ function Feed() {
         fetchPosts();
     }, []);
     const postComponentsList = posts.map((post) => {
-        return <PostCard title={post.title} tags={post.tags} body={post.body} reactions={post.reactions} key={post.id} />
+        return <PostCard id={post.id} title={post.title} tags={post.tags} body={post.body} reactions={post.reactions} key={post.id} />
     });
     return (
         <Grid container spacing={{xs: 4, md: 8, lg: 10 }} justifyContent='space-evenly'>
