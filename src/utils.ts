@@ -11,3 +11,7 @@ export function formatTitle (postTitile: string) {
         ? postTitile.slice(0, -1) 
         : postTitile; 
 }
+
+// export function handleAxiosError(error: ) {
+
+// }

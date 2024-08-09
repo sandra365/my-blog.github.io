@@ -1,9 +1,9 @@
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { Stack } from "@mui/material";
-import { Reactions } from './types';
+import { Reactions as ReactionsData } from './types';
 
-function Reactions (props: Reactions) {
+function ReactionsView (props: ReactionsData) {
     return (
     <Stack direction='row' spacing={1}>
         <Stack direction='row' alignItems='center'>
@@ -15,9 +15,7 @@ function Reactions (props: Reactions) {
             {props.dislikes}
             </Stack>
     </Stack>
-    )
+    );
 }
 
-export default Reactions;
-//investigate naming conventions(window open in browser)
-//and come up with right names for component/data type
+export default ReactionsView;

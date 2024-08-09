@@ -11,7 +11,7 @@ export const getPosts = async () => {
         return response.data.posts;
     } catch (error) {
         if ( axios.isAxiosError<{ message: string; }>(error) ) {
-            console.log(error.response?.data.message)
+            console.log(error.response?.data.message);
         }
         console.log(error);
     }
@@ -21,8 +21,11 @@ export const getPost = async (postId: string) => {
     try {
         const response = await client.get<Post>(`/posts/${postId}`);
         return response.data;
-    } catch {
-        //finish catch statement
+    } catch (error) {
+        if (axios.isAxiosError<{ message: string; }>(error) ) {
+            console.log(error.response?.data.message);
+        }
+        console.log(error);
     }
 
 };
@@ -31,7 +34,10 @@ export const getUser = async (userId: number) => {
     try {
         const response = await client.get<User>(`/users/${userId}`);
         return response.data;
-    } catch {
-        //finish catch statement
+    } catch (error) {
+        if (axios.isAxiosError<{ message: string; }>(error) ) {
+            console.log(error.response?.data.message);
+        }
+        console.log(error);
     }
 };

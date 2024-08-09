@@ -1,9 +1,12 @@
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Post, User } from "./types";
 import { getPost, getUser } from "./api/api";
-import { Box, Stack, Typography } from "@mui/material";
-
+import { Stack, Typography } from "@mui/material";
+import ReactionsView from "./ReactionsView";
+//?rename PostPage to PostView
+//and review other name confusions
 function  PostPage() {
     let { postId } = useParams();
     postId = postId!;
@@ -20,7 +23,7 @@ function  PostPage() {
     const fetchAuthor = async () => {
         const user = await getUser(post!.userId);
         if (user) {
-            setAuthor(user);//difference between actual user object and my interface?
+            setAuthor(user);
         }
     };
     
@@ -40,16 +43,26 @@ function  PostPage() {
 
     return (
         <Stack>
-            <Typography variant='h5' component='h2'>{post.title}</Typography>
-            <Typography variant='subtitle1'>{author?.firstName} {author?.lastName}</Typography>
-            <Typography variant='body1'>{post.body}</Typography>
+            <Typography variant='h5' component='h2'>
+                {post.title}
+            </Typography>
+            <Typography variant='subtitle1'>
+                {author?.firstName} {author?.lastName}
+            </Typography>
+            <Typography variant='body1'>
+                {post.body}
+            </Typography>
             <Stack direction='row' justifyContent='space-between'>
-                <Box>{post.views}</Box>
-                <Box>{post.reactions.likes} {post.reactions.dislikes}</Box>
+                <Stack direction='row' alignItems='center'>
+                    <VisibilityIcon fontSize='small'sx={{mr: 1}}/>
+                    {post.views}
+                </Stack>
+                <ReactionsView 
+                    likes={post.reactions.likes} 
+                    dislikes={post.reactions.dislikes} 
+                />
             </Stack>
         </Stack>
-      
-
     );
 }
 
@@ -58,6 +71,6 @@ export default PostPage;
 //small bug left with author loading slighly after post
 //preferably to show the simultaneously
 
-// 1. Finish PostPage implementation / Wed
-// 2. Do error handling for getPost() / Thu
-// 3. Work review and refactoring / Fri
+//Box is a MUI wrapper for applying styles
+//Stack is a component for layout of immediate children (1-dimensional layout)
+//For 2-dimensional layout use Grid
