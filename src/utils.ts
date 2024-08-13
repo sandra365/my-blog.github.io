@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function cropPostBody (postBody: string) {
     const slicedString = postBody.split(' ').slice(0, 40).join(' ');
         return ( slicedString.endsWith('.') 
@@ -12,6 +14,9 @@ export function formatTitle (postTitile: string) {
         : postTitile; 
 }
 
-// export function handleAxiosError(error: ) {
-
-// }
+export function handleResponseError(error: unknown ) {
+    if ( axios.isAxiosError<{ message: string }>(error) ) {
+        console.log(error.response?.data.message);
+    }
+    console.log(error);
+}
