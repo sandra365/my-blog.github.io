@@ -37,40 +37,37 @@ function  PostPage() {
         }
     }, [post?.userId]);
 
-    if (!post) {//if !author
+    if (!post) {
         return null;
     }
 
     return (
-        <Stack>
-            <Typography variant='h5' component='h2'>
-                {post.title}
-            </Typography>
-            <Typography variant='subtitle1'>
-                {author?.firstName} {author?.lastName}
-            </Typography>
-            <Typography variant='body1'>
-                {post.body}
-            </Typography>
-            <Stack direction='row' justifyContent='space-between'>
-                <Stack direction='row' alignItems='center'>
-                    <VisibilityIcon fontSize='small'sx={{mr: 1}}/>
-                    {post.views}
+        author && (
+            <Stack alignItems='center' sx={{width: '100%'}}>
+                <Stack width='75%'>
+                    <Typography variant='h5' component='h2' sx={{pb: .5}}>
+                        {post.title}
+                    </Typography>
+                    <Typography variant='subtitle1' sx={{pb: 2}}>
+                        {author?.firstName} {author?.lastName}
+                    </Typography>
+                    <Typography variant='body1' sx={{pb: 2}}>
+                        {post.body}
+                    </Typography>
+                    <Stack direction='row' justifyContent='space-between'>
+                        <Stack direction='row' alignItems='center'>
+                            <VisibilityIcon fontSize='small'sx={{mr: 1}}/>
+                            {post.views}
+                        </Stack>
+                        <ReactionsView 
+                            likes={post.reactions.likes} 
+                            dislikes={post.reactions.dislikes} 
+                        />
+                    </Stack>
                 </Stack>
-                <ReactionsView 
-                    likes={post.reactions.likes} 
-                    dislikes={post.reactions.dislikes} 
-                />
             </Stack>
-        </Stack>
+        )
     );
 }
 
 export default PostPage;
-
-//small bug left with author loading slighly after post
-//preferably to show the simultaneously
-
-//Box is a MUI wrapper for applying styles
-//Stack is a component for layout of immediate children (1-dimensional layout)
-//For 2-dimensional layout use Grid
