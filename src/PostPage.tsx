@@ -1,10 +1,11 @@
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Post, User } from "./types";
-import { getPost, getUser } from "./api/api";
-import { Stack, Typography } from "@mui/material";
+import { Comment, Post, User } from "./types";
+import { getComments, getPost, getUser } from "./api/api";
+import { Divider, Stack, Typography } from "@mui/material";
 import ReactionsView from "./ReactionsView";
+import CommentView from './CommentView';
 //?rename PostPage to PostView
 //and review other name confusions
 function  PostPage() {
@@ -12,6 +13,7 @@ function  PostPage() {
     postId = postId!;
     const [post, setPost] = useState<Post>();
     const [author, setAuthor] = useState<User>();
+    const [comments, setComments] = useState<Comment[]>();
 
     const fetchPost = async () => {
         const postData = await getPost(postId);  
@@ -26,6 +28,13 @@ function  PostPage() {
             setAuthor(user);
         }
     };
+
+    const fetchComments = async () => {
+        const comments = await getComments();
+        if (comments) {
+            setComments(comments);
+        }
+    }
     
     useEffect(() => {
         fetchPost();
@@ -37,8 +46,30 @@ function  PostPage() {
         }
     }, [post?.userId]);
 
+    useEffect(() => {
+        fetchComments();
+    },[]);
+
     if (!post) {
         return null;
+    }
+
+    const commentStackView = () => {
+        if (comments) {
+            const commentsStack = comments.map((comment, index: number) => {
+                let lastComment = index === (comments.length - 1);
+                return (
+                    <Stack>
+                        <CommentView
+                        commentAuthor={comment.user.username}
+                        commentText={comment.body} 
+                        />
+                        { lastComment ? null : <Divider/> }
+                    </Stack>
+                );
+            });
+            return commentsStack;
+        } 
     }
 
     return (
@@ -57,7 +88,9 @@ function  PostPage() {
                     <Stack direction='row' justifyContent='space-between'>
                         <Stack direction='row' alignItems='center'>
                             <VisibilityIcon fontSize='small'sx={{mr: 1}}/>
-                            {post.views}
+                            <Typography variant='body1'>
+                                {post.views}
+                            </Typography>
                         </Stack>
                         <ReactionsView 
                             likes={post.reactions.likes} 
@@ -65,9 +98,15 @@ function  PostPage() {
                         />
                     </Stack>
                 </Stack>
+                <Stack width='75%'>
+                    {commentStackView()}
+                </Stack>
             </Stack>
         )
     );
 }
 
 export default PostPage;
+
+//Every mistake is an opportunity to learn something new
+//You just got to learn how to

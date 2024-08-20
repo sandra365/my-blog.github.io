@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Post, PostsResponse, User } from '../types';
+import { CommentsResponseData, Post, PostsResponse, User } from '../types';
 import { handleResponseError } from '../utils';
 
 export const client = axios.create( {
@@ -29,6 +29,15 @@ export const getUser = async (userId: number) => {
     try {
         const response = await client.get<User>(`/users/${userId}`);
         return response.data;
+    } catch (error) {
+        handleResponseError(error);
+    }
+};
+
+export const getComments = async () => {
+    try {
+        const response = await client.get<CommentsResponseData>('/comments?limit=10');
+        return response.data.comments;
     } catch (error) {
         handleResponseError(error);
     }

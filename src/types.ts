@@ -14,7 +14,7 @@ export interface Post {
 }
 
 export interface PostsResponse {
-    posts: Post[]
+    posts: Post[];
 }
 
 export interface User {
@@ -22,3 +22,24 @@ export interface User {
     firstName: string;
     lastName: string;
 };
+
+export interface CommentAuthor {
+    id: number;
+    username: string;
+    fullName: string;
+}
+
+export interface Comment {
+    id: number;
+    body: string;
+    postId: number;
+    likes: number;
+    user: CommentAuthor;
+}
+
+export interface CommentsResponseData {
+    comments: Comment[];
+    limit: number;
+    skip: number;
+    total: number;
+}
