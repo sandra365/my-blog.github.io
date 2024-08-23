@@ -6,6 +6,7 @@ import { getComments, getPost, getUser } from "./api/api";
 import { Divider, Stack, Typography } from "@mui/material";
 import ReactionsView from "./ReactionsView";
 import CommentView from './CommentView';
+import CommentInputView from './CommentInputView';
 //?rename PostPage to PostView
 //and review other name confusions
 function  PostPage() {
@@ -62,7 +63,7 @@ function  PostPage() {
                     <Stack>
                         <CommentView
                         commentAuthor={comment.user.username}
-                        commentText={comment.body} 
+                        commentText={comment.body}
                         />
                         { lastComment ? null : <Divider/> }
                     </Stack>
@@ -99,6 +100,7 @@ function  PostPage() {
                     </Stack>
                 </Stack>
                 <Stack width='75%'>
+                    <CommentInputView />
                     {commentStackView()}
                 </Stack>
             </Stack>

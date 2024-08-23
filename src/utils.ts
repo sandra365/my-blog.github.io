@@ -14,7 +14,7 @@ export function formatTitle (postTitile: string) {
         : postTitile; 
 }
 
-export function handleResponseError(error: unknown ) {
+export function handleResponseError (error: unknown ) {
     if ( axios.isAxiosError<{ message: string }>(error) ) {
         console.log(error.response?.data.message);
     }
