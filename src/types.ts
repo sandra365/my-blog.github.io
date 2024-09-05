@@ -43,3 +43,9 @@ export interface CommentsResponseData {
     skip: number;
     total: number;
 }
+
+export interface CommentPostData {
+    body: string;
+    postId: string;
+    userId: number;
+}

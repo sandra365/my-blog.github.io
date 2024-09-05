@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { CommentsResponseData, Post, PostsResponse, User } from '../types';
+import axios, { AxiosResponse } from 'axios';
+import { Comment, CommentPostData, CommentsResponseData, Post, PostsResponse, User } from '../types';
 import { handleResponseError } from '../utils';
 
 export const client = axios.create( {
@@ -42,3 +42,13 @@ export const getComments = async () => {
         handleResponseError(error);
     }
 };
+
+export const postComment = async (postData: CommentPostData) => {
+    try {
+        const response = await client.post<Comment,AxiosResponse<Comment>,CommentPostData>('/comments/add', postData);//create type for here
+        return response.data;
+    } catch (error) {
+        handleResponseError(error);
+    }
+
+}

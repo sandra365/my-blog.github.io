@@ -7,8 +7,7 @@ import { Divider, Stack, Typography } from "@mui/material";
 import ReactionsView from "./ReactionsView";
 import CommentView from './CommentView';
 import CommentInputView from './CommentInputView';
-//?rename PostPage to PostView
-//and review other name confusions
+
 function  PostPage() {
     let { postId } = useParams();
     postId = postId!;
@@ -35,7 +34,7 @@ function  PostPage() {
         if (comments) {
             setComments(comments);
         }
-    }
+    };
     
     useEffect(() => {
         fetchPost();
@@ -50,7 +49,7 @@ function  PostPage() {
     useEffect(() => {
         fetchComments();
     },[]);
-
+    //why is this code here
     if (!post) {
         return null;
     }
@@ -60,7 +59,7 @@ function  PostPage() {
             const commentsStack = comments.map((comment, index: number) => {
                 let lastComment = index === (comments.length - 1);
                 return (
-                    <Stack>
+                    <Stack key={comment.id}>
                         <CommentView
                         commentAuthor={comment.user.username}
                         commentText={comment.body}
@@ -71,7 +70,13 @@ function  PostPage() {
             });
             return commentsStack;
         } 
-    }
+    };
+
+    const addComment = (newComment:Comment) => {
+        setComments(prevComments => {
+            return prevComments ? [newComment, ...prevComments] : [newComment];
+        })
+    };
 
     return (
         author && (
@@ -100,7 +105,10 @@ function  PostPage() {
                     </Stack>
                 </Stack>
                 <Stack width='75%'>
-                    <CommentInputView />
+                    <CommentInputView 
+                        postId={postId} 
+                        addComment={addComment}
+                    />
                     {commentStackView()}
                 </Stack>
             </Stack>
@@ -110,5 +118,6 @@ function  PostPage() {
 
 export default PostPage;
 
-//Every mistake is an opportunity to learn something new
-//You just got to learn how to
+//???rename PostPage to PostView
+//and review other name confusions
+//add navigation back to posts
