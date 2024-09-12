@@ -19,9 +19,20 @@ function PostCard(props:PostProps) {
     const buttonLink = `/posts/${props.id}`
     
     return (
-        <Grid item xs={8} sm={8} md={6} minWidth={345}>
+        <Grid item xs={8} sm={8} md={6} minWidth={320}>
             <Card>
-                <CardContent sx={{height: 225}}>
+                <CardContent sx={{
+                    '@media (min-width: 600px)': {
+                        height: 200
+                    },
+                    '@media (max-width: 599px)': {
+                        height: 225,
+                        mb: 2
+                    },
+                    '@media (min-width: 900px)': {
+                        mb: 4
+                    }
+                }}>
                     <Typography variant='h5' component='h2'>
                         {postTitle}
                     </Typography>

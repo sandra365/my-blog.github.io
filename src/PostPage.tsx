@@ -80,7 +80,7 @@ function  PostPage() {
 
     return (
         author && (
-            <Stack alignItems='center' sx={{width: '100%'}}>
+            <Stack alignItems='center' width='100%'>
                 <Stack width='75%'>
                     <Typography variant='h5' component='h2' sx={{pb: .5}}>
                         {post.title}
@@ -117,7 +117,3 @@ function  PostPage() {
 }
 
 export default PostPage;
-
-//???rename PostPage to PostView
-//and review other name confusions
-//add navigation back to posts
