@@ -31,6 +31,7 @@ function CommentInputView (props: CommentInputViewProps) {
         }
         props.addComment({...postedCommentData, likes: 0});
         setCommentFormInput('');
+        setIsCancelsButtonDisabled(true);
     };
 
     useEffect(() => {
@@ -51,6 +52,9 @@ function CommentInputView (props: CommentInputViewProps) {
                 }}
                 onFocus={() => {
                     setIsCancelsButtonDisabled(false);
+                }}
+                onBlur={() => {
+                    setIsCancelsButtonDisabled(true);
                 }}
             />
             <Stack flexDirection='row' justifyContent='right' mb='1'>
@@ -81,5 +85,3 @@ function CommentInputView (props: CommentInputViewProps) {
 }
 
 export default CommentInputView;
-
-// make input accesible by wrapping it in <form>
