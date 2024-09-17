@@ -18,7 +18,7 @@ function Footer() {
             }}
         >
             <Typography variant='body1'>
-                Part of portfolio showcase
+                Part of portfolio
                 Oleksandra Hrabovska
                 2024
                 *links to github and linkedin*

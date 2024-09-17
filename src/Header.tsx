@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import MaterialLink from '@mui/material/Link';
 import { Link } from 'react-router-dom';
 
@@ -12,9 +12,9 @@ function Header() {
             spacing={2}
             position='sticky'
             top={0}
+            zIndex={100}
             bgcolor='#e3f2fd'
             sx={{
-                zIndex: '100',
                 boxSizing: 'border-box',
                 '@media (max-width: 599px)': {
                     paddingY: 1,
@@ -26,13 +26,17 @@ function Header() {
                 }
             }}
         >
-            <Typography variant='h2' component='h1'> My blog </Typography>
             <Link to='posts' style={{textDecoration: 'none'}}>
-                <MaterialLink variant='h5'component='h6' underline='hover' color='#000'>
+                <MaterialLink variant='h2' component='h1' underline='none' color='#000'>
+                    My blog
+                </MaterialLink>
+            </Link>
+            <Link to='posts' style={{textDecoration: 'none'}}>
+                <MaterialLink variant='h5' component='h6' underline='hover' color='#000'>
                     posts
                 </MaterialLink>
             </Link>
-            <Link to='' style={{textDecoration: 'none'}}>
+            <Link to='about' style={{textDecoration: 'none'}}>
                 <MaterialLink variant='h5' component='h6' underline='hover' color='#000'>
                     about
                 </MaterialLink>

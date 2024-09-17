@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 function App() {
   return (
-      <Stack spacing={4} alignItems='center' position='relative'>
+      <Stack spacing={4} alignItems='center' justifyContent='space-between' position='relative' height='100vh'>
         <Header />
         <Stack sx={{
           '@media (min-width: 900px)': {
@@ -13,7 +13,7 @@ function App() {
           }
         }}>
           <Outlet />
-          {/* <Navigate to='/posts' /> */}
+          <Navigate to='/posts' />
         </Stack>
         <Footer />
       </Stack>
@@ -22,19 +22,12 @@ function App() {
 
 export default App;
 
-//???rename PostPage to PostView - try to name components close to their UI meanings
-//and review other name confusions
-
-//create about page
-//add navigation to about page
-//add navigation to about via logo
-
+//fill in about page
 //make comment input accesible by wrapping it in <form>
-//fix issue with footer not being sticky to the bottom of the page when loading 
-
-//should I resolve issue with comments keys?
+//what was wrong with navigate to posts?
 
 //return to the generics later (you'll understand them one day, no pressure, it's just a hard topic for you)
-
 //and look how far you've gone and how consistent you've been
 //it's enough to start looking for a job and be proud of yourself
+
+//function names should stard with a verb
