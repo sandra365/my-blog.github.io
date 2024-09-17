@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { Comment, Post, User } from "./types";
 import { getComments, getPost, getUser } from "./api/api";
 import { Divider, Stack, Typography } from "@mui/material";
-import ReactionsView from "./ReactionsView";
-import CommentView from './CommentView';
-import CommentInputView from './CommentInputView';
+import ReactionsCounter from "./ReactionsCounter";
+import CommentView from './CommentForm';
+import CommentFormInput from './CommentFormInput';
 
 function  PostPage() {
     let { postId } = useParams();
@@ -54,7 +54,7 @@ function  PostPage() {
         return null;
     }
 
-    const commentStackView = () => {
+    const createCommentsStack = () => {
         if (comments) {
             const commentsStack = comments.map((comment, index: number) => {
                 let lastComment = index === (comments.length - 1);
@@ -98,18 +98,18 @@ function  PostPage() {
                                 {post.views}
                             </Typography>
                         </Stack>
-                        <ReactionsView 
+                        <ReactionsCounter 
                             likes={post.reactions.likes} 
                             dislikes={post.reactions.dislikes} 
                         />
                     </Stack>
                 </Stack>
                 <Stack width='75%'>
-                    <CommentInputView 
+                    <CommentFormInput 
                         postId={postId} 
                         addComment={addComment}
                     />
-                    {commentStackView()}
+                    {createCommentsStack()}
                 </Stack>
             </Stack>
         )

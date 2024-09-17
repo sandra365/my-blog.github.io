@@ -3,7 +3,7 @@ import { cropPostBody, formatTitle } from './utils';
 import TagList from './TagList';
 import { Box, Button, Card, CardActions, CardContent, Grid, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import ReactionsView from './ReactionsView';
+import ReactionsCounter from './ReactionsCounter';
 
 interface PostProps {
     id: number,
@@ -45,7 +45,7 @@ function PostCard(props:PostProps) {
                 </CardContent>
                 <CardActions sx={{p: 2}}>
                     <Stack direction='row' justifyContent='space-between' sx={{width: '100%'}}>
-                        <ReactionsView 
+                        <ReactionsCounter 
                             likes={props.reactions.likes} 
                             dislikes={props.reactions.dislikes} 
                         />
