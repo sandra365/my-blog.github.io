@@ -3,7 +3,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { Stack, Typography } from "@mui/material";
 import { Reactions as ReactionsData } from './types';
 
-function ReactionsView (props: ReactionsData) {
+function ReactionsCounter (props: ReactionsData) {
     return (
     <Stack direction='row' spacing={1} pb={1}>
         <Stack direction='row' alignItems='center'>
@@ -22,4 +22,4 @@ function ReactionsView (props: ReactionsData) {
     );
 }
 
-export default ReactionsView;
+export default ReactionsCounter;

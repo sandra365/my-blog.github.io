@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { postComment } from "./api/api";
 import { Comment } from "./types";
 
-interface CommentInputViewProps {
+interface CommentFormInputProps {
     postId: string;
     addComment: (comment: Comment) => void;
 }
 
-function CommentInputView (props: CommentInputViewProps) {
+function CommentFormInput (props: CommentFormInputProps) {
     const [isCancelButtonDisabled, setIsCancelsButtonDisabled] = useState<boolean>(true);
     const [isCommentButtonDisabled, setICommentsButtonDisabled] = useState<boolean>(true);
     const [commentFormInput, setCommentFormInput] = useState<string>('');
@@ -84,4 +84,4 @@ function CommentInputView (props: CommentInputViewProps) {
     );
 }
 
-export default CommentInputView;
+export default CommentFormInput;

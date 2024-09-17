@@ -1,12 +1,12 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Stack, Typography } from "@mui/material";
 
-interface CommentViewProps {
+interface CommentFormProps {
     commentAuthor: string;
     commentText: string;
 }
 
-function CommentView (props: CommentViewProps) {
+function CommentForm (props: CommentFormProps) {
     return(
         <Stack py={1}>
             <Stack flexDirection='row' pb={.25}>
@@ -22,4 +22,4 @@ function CommentView (props: CommentViewProps) {
     );
 }
 
-export default CommentView;
+export default CommentForm;
