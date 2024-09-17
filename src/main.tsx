@@ -12,6 +12,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Feed from './Feed.tsx';
 import PostPage from './PostPage.tsx';
 import NotFound from './NotFound.tsx';
+import About from './About.tsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<App/>} >
         <Route path='/posts' element={<Feed/>} />
         <Route path='/posts/:postId' element={<PostPage/>} />
+        <Route path='/about' element={<About/>} />
       </Route>
       <Route path='*' element={<NotFound/>} />
     </>
